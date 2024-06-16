@@ -1,0 +1,17 @@
+ <div>
+    <ul>
+        @if(items.length==0){
+            <li>No data</li>
+        }@else {
+
+            @for(item of items; track item.id){
+                <li><a [routerLink]="['/snippet',item.id]"> {{item.title}}</a></li>
+            }
+
+        }
+
+    </ul>
+</div> 
+
+
+  

@@ -1,0 +1,17 @@
+
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis expedita nihil nobis sit aperiam, voluptatem perspiciatis delectus dolorem nesciunt quia reiciendis id eius cupiditate culpa numquam iure ut? Obcaecati, iusto!</p>
+<!-- on viewport / on interaction / on hover-->
+@defer(on viewport) {   
+    <!-- jaise hi viewport se jyada aya , heavycomponent works -->
+<app-heavy></app-heavy>
+}@placeholder {
+    <h3>this is placeholder</h3>
+}
+
+@loading(after 100ms;minimum 1s) {
+    <!-- if content didnt load within 100ms then show this for 1 s -->
+    <div class="loading">Loading...</div>
+}@error{
+    <!-- when you get offline -->
+    <h3>Error while loading heavy component</h3>
+}

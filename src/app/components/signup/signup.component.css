@@ -1,0 +1,92 @@
+/* Container styling */
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f0e77db3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Form title */
+  h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  /* Input fields */
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  /* Error message styling */
+  .red-text {
+    color: #e74c3c;
+    font-size: 14px;
+    margin: -15px 0 10px 0;
+  }
+  
+  /* Button styling */
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .btn-green {
+    background-color: #2ecc71;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .btn-green:disabled {
+    background-color: #a9dfbf;
+  }
+  .btn-red {
+    background-color: #e74c3c;
+    color: #fff;
+  }
+  
+  /* Hover effects */
+  .btn-green:hover:not(:disabled),
+  .btn-red:hover {
+    opacity: 0.9;
+  }
+
+  .btn-green:disabled{
+    cursor: not-allowed;
+    
+  }
+  
+  /* Responsive design */
+  @media (max-width: 480px) {
+    .container {
+      padding: 15px;
+    }
+  
+    h4 {
+      font-size: 20px;
+    }
+  
+    input[type="email"],
+    input[type="password"] {
+      font-size: 14px;
+    }
+  
+    button {
+      font-size: 14px;
+    }
+  }
+  

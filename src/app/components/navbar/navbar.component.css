@@ -1,0 +1,32 @@
+div{
+    margin: 10px;
+}
+
+nav{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+li:hover{
+    cursor: pointer;
+}
+.logout{
+    color: #008080;
+    font-weight: 600;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+ul li a.active{
+    font-weight: 600;
+}

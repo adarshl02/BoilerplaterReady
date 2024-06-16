@@ -1,0 +1,53 @@
+/* Outer container styling */
+div {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #f3e7e9, #e3eeff);
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* List styling */
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-width: 600px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  /* List item styling */
+  li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Link styling */
+  a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+  
+  a:hover {
+    color: #007bff;
+  }
+  
+  /* "No data" styling */
+  li {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+  }
+  

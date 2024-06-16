@@ -1,0 +1,17 @@
+<!-- inject template variable ngForm ngModel-->
+<form  class="container" #registerForm="ngForm"> 
+    <h4>Please Signup</h4>
+    
+    <input type="email" placeholder="email here" name="email" required pattern="^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$" ngModel #email="ngModel" />
+    <h5 class="red-text" [hidden]="email.valid || email.untouched">enter correct email</h5>
+    
+    
+    <input type="password" placeholder="password here" name="password" required minlength="6" ngModel #password="ngModel" />
+    <h5 class="red-text" [hidden]="password.valid || password.untouched">length should be greater than 6 </h5>
+
+
+    <button class="btn-green" [disabled]="registerForm.invalid"  (click)="register(registerForm)" >Signup</button>
+    <button class="btn-red" (click)="reset(registerForm)" >Reset</button>
+</form>
+
+
