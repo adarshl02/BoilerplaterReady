@@ -2,15 +2,23 @@
     <h4>Please Login</h4>
     
     <input type="email" placeholder="email here"  [formControl]="email"/>
+    <div style="display: flex; justify-content: left;" >
     <h5 class="red-text" [hidden]="email.valid || email.untouched">enter correct email</h5>
-    
+    </div>
     
     <input type="password" placeholder="password here"  [formControl]="password"/>
     <h5 class="red-text" [hidden]="password.valid || password.untouched">length should be greater than 6 </h5>
 
+    <a class="forgot-password" (click)="forgotPassword()">Forgot Password?</a>
 
     <button class="btn-green" [disabled]="loginForm.invalid"  (click)="login()" >Login</button>
-    <button class="btn-red" (click)="reset()" >Reset</button>
+
+    <!-- Login with Google button -->
+     
+  <button class="btn-google" (click)="loginWithGoogle()">
+   <img src="/google.png" alt="" class="google-logo" >  Signin with Google
+  </button>
+
 </form>
 
 

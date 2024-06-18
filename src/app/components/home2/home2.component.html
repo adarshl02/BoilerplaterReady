@@ -1,0 +1,43 @@
+<div class="container"  >
+    <div class="main-content" (click)="onContainerClick($event)" >
+      <div class="intro">
+        <h1>Get your Boilerplate Code Ready !</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="buttons">
+          <button class="login-btn" (click)="showLogin($event)">Login</button>
+          <button class="register-btn" (click)="showRegister($event)">Register</button>
+        </div>
+        <div class="social-media"  >
+          <a><img src="facebook.png" alt="Facebook"></a>
+          <a><img src="twitter.png" alt="Twitter"></a>
+          <a><img src="instagram.png" alt="Instagram"></a>
+        </div>
+      </div>
+  
+    <div class="illustration" >
+      <div *ngIf="isLoginVisible" @fadeInOut (click)="$event.stopPropagation()" >
+        <app-login></app-login>
+      </div>
+  
+      <div *ngIf="isRegisterVisible" @fadeInOut (click)="$event.stopPropagation()">
+        <app-signup></app-signup>
+      </div>
+    </div>
+    </div>
+  
+    <div class="footer">
+      <div class="footer-section">
+        <h2>Freelancer Platform</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+      <div class="footer-section">
+        <h2>App Platform</h2>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+      <div class="footer-section">
+        <h2>IT Support</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </div>
+  </div>
+  

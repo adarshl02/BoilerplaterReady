@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -10,7 +11,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-
+  
   constructor(private authService:AuthService){}
 
   email=new FormControl("",[
@@ -32,7 +33,17 @@ export class LoginComponent {
     console.log(this.loginForm.value)
     this.authService.loginUser(this.loginForm.value.email!,this.loginForm.value.password!)
   }
-  reset(){
-    this.loginForm.reset()
+  // reset(){
+  //   this.loginForm.reset()
+  // }
+
+  loginWithGoogle() {
+   this.authService.googleSignIn()
   }
+
+  forgotPassword(){
+    const email:any = this.loginForm.get('email')?.value;
+      this.authService.forgotPassword(email)
+  }
+
 }

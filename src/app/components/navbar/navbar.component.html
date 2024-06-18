@@ -1,18 +1,22 @@
-<div>
+<div class="container" >
     <nav>
-        <h2> <a routerLink="/">CodeStore</a> </h2>
+        <div class="right" style="display: flex;" >
+        <h2> <a routerLink="/store">CodeStore</a>  </h2>
+       
+        <img src="logo2.png" alt="image" height="60px" />
+    </div>
         <ul>
             <li> <a routerLink="/create" routerLinkActive="active" >CreateStore</a> </li>
             @if(authService.isAuthenticated()){
-            <li (click)="authService.logout()" > Logout </li>
+            <li (click)="authService.logout()"> <a > Logout</a> </li>
                 
             }@else{
                 <li> <a routerLink="/login" routerLinkActive="active" >Login</a> </li>
                 <li> <a routerLink="/signup" routerLinkActive="active" >Signup</a> </li>    
             }
             <li> <a routerLink="/about" routerLinkActive="active" >About</a> </li>
-            <li> <a routerLink="/demo" routerLinkActive="active" >DefferDemo</a> </li>
+            <li> <a routerLink="/mystore" routerLinkActive="active" >My Store</a> </li>
+            <li> <a routerLink="/store" routerLinkActive="active" >Store</a> </li>
         </ul>
     </nav>
-    <hr/>
 </div>

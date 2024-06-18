@@ -11,7 +11,9 @@
 
 
     <button class="btn-green" [disabled]="registerForm.invalid"  (click)="register(registerForm)" >Signup</button>
-    <button class="btn-red" (click)="reset(registerForm)" >Reset</button>
+    <button class="btn-google" (click)="loginWithGoogle()">
+        <img src="/google.png" alt="" class="google-logo" >  Register with Google
+       </button>
 </form>
 
 

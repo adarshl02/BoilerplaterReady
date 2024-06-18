@@ -3,23 +3,32 @@ import { DbService } from '../../services/db.service';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-mystore',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './mystore.component.html',
+  styleUrl: './mystore.component.css'
 })
-export class HomeComponent {
-
+export class MystoreComponent {
   constructor(private dbService:DbService){}
   items:{id:string,title:string}[]=[]
   ngOnInit(){
-      this.dbService.getAllSnippet()
+      this.dbService.getUserSnippet()
         .then((data:any)=>{
           console.log(data)
             this.items=data
         })
         
   }
+deleteItem(id: string) {
+  this.items = this.items.filter(item => item.id !== id);
+  this.dbService.deleteSnippet(id)
+ 
+  // Optionally, add additional logic for deleting the item, e.g., calling a service
+}
 
 }
+
+
+
+

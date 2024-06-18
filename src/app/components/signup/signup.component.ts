@@ -20,7 +20,11 @@ export class SignupComponent {
    
   }
 
-  reset(regForm:NgForm){
-    regForm.reset();
-  }
+  // reset(regForm:NgForm){
+  //   regForm.reset();
+  // }
+
+  loginWithGoogle() {
+    this.authService.googleSignIn()
+   }
 }

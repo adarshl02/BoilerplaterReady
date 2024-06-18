@@ -6,6 +6,9 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  signInWithPopup,
+  GoogleAuthProvider,
+  sendPasswordResetEmail,
 } from 'firebase/auth';
 
 @Injectable({
@@ -29,6 +32,7 @@ export class AuthService {
       if (user) {
         this.uid=user.uid
         console.log("User logged in as ",user.email)
+        this.router.navigate(['/store']);
       } else {
         this.uid=undefined
         console.log("User logged out")
@@ -45,7 +49,7 @@ export class AuthService {
         // Signed up
         const user = userCredential.user;
         console.log({ user });
-        this.router.navigate(['/']);
+        this.router.navigate(['/store']);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -61,7 +65,7 @@ export class AuthService {
         // Signed in
         const user = userCredential.user;
         console.log({ user });
-        this.router.navigate(['/']);
+        this.router.navigate(['/store']);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -71,8 +75,52 @@ export class AuthService {
   }
   logout() {
     const auth = getAuth();
-    signOut(auth).catch((error) => {
+    signOut(auth)
+      .then(() => {
+        console.log('User signed out');
+        this.router.navigate(['/']);
+        })
+    .catch((error) => {
       alert('Something went wrong while logout');
     });
   }
+
+  googleSignIn(){
+    const auth = getAuth();
+    const provider=new GoogleAuthProvider()
+    signInWithPopup(auth, provider)
+      .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential?credential.accessToken:null;
+    // The signed-in user info.
+    const user = result.user;
+    console.log(user)
+    // IdP data available using getAdditionalUserInfo(result)
+    this.router.navigate(['/store']);
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+   
+  }
+
+  forgotPassword(email:string){
+    const auth = getAuth();
+      sendPasswordResetEmail(auth,email)
+        .then(()=>{
+          alert('Password reset email sent');
+          // this.router.navigate(['/login']);
+        })
+        .catch((err)=>{
+          console.log(err)
+        })
+  }
+
 }

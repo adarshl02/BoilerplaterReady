@@ -1,0 +1,17 @@
+<div  >
+    <ul>
+        @if(items.length==0){
+            <li>Loading ...</li>
+        }@else {
+
+            @for(item of items; track item.id){
+               
+                <li><a [routerLink]="['/mysnippet',item.id]"> {{item.title}}</a>
+                <button class="delete-btn" (click)="deleteItem(item.id)">Delete</button>
+               </li>
+            }
+
+        }
+
+    </ul>
+</div> 
