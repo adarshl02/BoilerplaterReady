@@ -19,10 +19,11 @@ export class DbService {
       const docRef = await addDoc(collection(this.db, 'snippets'), {
         ...snippet,
         by: this.authService.getUid(),
+        rating: 0, 
       });
 
       console.log('Document written with ID: ', docRef.id);
-      this.router.navigate(['/store'])
+      this.router.navigate(['/mystore'])
 
     } catch (e) {
       console.error('Error adding document: ', e);
@@ -92,6 +93,37 @@ export class DbService {
     }
   }
 
+// UPDATE RATING
+async updateSnippetRating(docId: string, newRating: number) {
+  try {
+    const docRef = doc(this.db, 'snippets', docId);
+    const docSnap = await getDoc(docRef);
 
+    if (docSnap.exists()) {
+      const snippetData = docSnap.data();
+      let updatedRating: number;
+
+      if ('rating' in snippetData && typeof snippetData['rating'] === 'number') {
+        if (snippetData['rating'] === 0) {
+          updatedRating = newRating;
+        } else {
+          updatedRating = (snippetData['rating'] + newRating) / 2;
+        }
+      } else {
+        updatedRating = newRating;
+      }
+      updatedRating = Math.ceil(updatedRating);
+      await updateDoc(docRef, { rating: updatedRating });
+      console.log('Snippet rating updated with ID: ', docId);
+    } else {
+      console.log('No such document to update rating!');
+    }
+  } catch (e) {
+    console.error('Error updating snippet rating: ', e);
+    alert('Error while updating rating');
+  }
+}
 
 }
+
+

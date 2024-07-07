@@ -1,11 +1,19 @@
- <div>
+ <div class="container" >
     <ul>
         @if(items.length==0){
             <li>Loading ...</li>
         }@else {
 
             @for(item of items; track item.id){
-                <li><a [routerLink]="['/snippet',item.id]"> {{item.title}}</a></li>
+                <li  >
+                    <a [routerLink]="['/snippet',item.id]"> {{item.title}}</a>
+                    <div class="rating">
+                    <span  *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+                    [class.filled]="i < item.rating">&#9733;</span>  </div>
+                </li>
+               
+                  
+                       
             }
 
         }

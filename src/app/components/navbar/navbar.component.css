@@ -40,9 +40,6 @@
     margin: 0px 4rem;
   }
   
-  nav ul li {
-   
-  }
   
   nav ul li a {
     color: #ffffff;
@@ -65,18 +62,36 @@
   /* Responsive design */
   @media (max-width: 768px) {
     nav {
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction:column;
+      padding: 5px 5px;
+      background-color: #191970;
     }
   
     nav ul {
-      flex-direction: column;
+      flex-direction: row;
       width: 100%;
+      width: auto;
     }
   
-    nav ul li {
+    nav ul li a {
       width: 100%;
       text-align: center;
+      padding: 0;
+    }
+    nav ul li a.active {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      padding: 5px 5px;
+    }
+    nav ul {
+      display: flex;
+      gap: 15px;
+      margin: 0px 2rem;
+    }
+
+    #mystore{
+      text-align: center;
+      justify-content: center;
     }
   }
   

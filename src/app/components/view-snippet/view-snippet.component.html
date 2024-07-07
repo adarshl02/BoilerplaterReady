@@ -1,4 +1,14 @@
 <div class="snippet-container " >
     <h3>{{codeSnippet.title}} </h3>
     <pre> {{codeSnippet.code}} </pre>
+
+    <div *ngIf="!isCurrentUser" class="rating">
+        <p>Give it a rating:</p>
+        <div>
+        <span *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+              (click)="setRating(i + 1)"
+              [class.filled]="i < initialRating">&#9733;</span>
+            </div>
+      </div>
+
 </div>

@@ -2,7 +2,8 @@
     <div class="main-content" (click)="onContainerClick($event)" >
       <div class="intro">
         <h1>Get your Boilerplate Code Ready !</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>
+          Store and organize your code snippets with titles, and explore code shared by others.<br> Save your work, discover new ideas, and connect with fellow coders.<br><br> Start saving and sharing your code today!</p>
         <div class="buttons">
           <button class="login-btn" (click)="showLogin($event)">Login</button>
           <button class="register-btn" (click)="showRegister($event)">Register</button>
@@ -16,7 +17,10 @@
   
     <div class="illustration" >
       <div *ngIf="isLoginVisible" @fadeInOut (click)="$event.stopPropagation()" >
+        @defer{
         <app-login></app-login>
+        }
+
       </div>
   
       <div *ngIf="isRegisterVisible" @fadeInOut (click)="$event.stopPropagation()">

@@ -1,3 +1,3 @@
 export type Snippet={
-    title: string; code: string 
+    title: string; code: string ; rating:number
 }
